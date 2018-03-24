@@ -1,2 +1,6 @@
 parameters:
     ignoreErrors:
+        - '#Result of static method Zend_Loader::loadClass\(\) \(void\) is used\.#'
+        - '#Call to an undefined method Zend_Controller_Router_Interface::getRoute\(\)\.#'
+        - '#Method Zend_Navigation_Container::findBy\(\) should return \(iterable<Zend_Navigation_Page>&Zend_Navigation_Page\)\|null but returns array<Zend_Navigation_Page>\.#'
+        - '#Casting to .+ something that.s already .+\.#'

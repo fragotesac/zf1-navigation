@@ -218,8 +218,9 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
         }
 
         if (null === self::$_urlHelper) {
-            self::$_urlHelper =
-                Zend_Controller_Action_HelperBroker::getStaticHelper('Url');
+            /** @var Zend_Controller_Action_Helper_Url $urlHelper */
+            $urlHelper =Zend_Controller_Action_HelperBroker::getStaticHelper('Url');
+            self::$_urlHelper = $urlHelper;
         }
 
         $params = $this->getParams();
