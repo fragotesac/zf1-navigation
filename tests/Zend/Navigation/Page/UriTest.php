@@ -55,27 +55,17 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
 
     public function testUriOptionAsInteger()
     {
-        try {
-            $page = new Zend_Navigation_Page_Uri(array('uri' => 1337));
-            $this->fail('An invalid \'uri\' was given, but ' .
-                        'a Zend_Navigation_Exception was not thrown');
-        } catch (Zend_Navigation_Exception $e) {
-
-        }
+        $this->expectException(Zend_Navigation_Exception::class);
+        $page = new Zend_Navigation_Page_Uri(array('uri' => 1337));
     }
 
     public function testUriOptionAsObject()
     {
-        try {
-            $uri = new stdClass();
-            $uri->foo = 'bar';
+        $this->expectException(Zend_Navigation_Exception::class);
+        $uri = new stdClass();
+        $uri->foo = 'bar';
 
-            $page = new Zend_Navigation_Page_Uri(array('uri' => $uri));
-            $this->fail('An invalid \'uri\' was given, but ' .
-                        'a Zend_Navigation_Exception was not thrown');
-        } catch (Zend_Navigation_Exception $e) {
-
-        }
+        $page = new Zend_Navigation_Page_Uri(array('uri' => $uri));
     }
 
     public function testSetAndGetUri()

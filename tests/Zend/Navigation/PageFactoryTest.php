@@ -127,16 +127,11 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
 
     public function testShouldFailForInvalidType()
     {
-        try {
-            $page = Zend_Navigation_Page::factory(array(
-                'type'  => 'My_InvalidPage',
-                'label' => 'My Invalid Page'
-            ));
-        } catch(Zend_Navigation_Exception $e) {
-            return;
-        }
-
-        $this->fail('An exception has not been thrown for invalid page type');
+        $this->expectException(Zend_Navigation_Exception::class);
+        $page = Zend_Navigation_Page::factory(array(
+            'type'  => 'My_InvalidPage',
+            'label' => 'My Invalid Page'
+        ));
     }
 
     public function testShouldFailForNonExistantType()
