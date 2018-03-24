@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Navigation/Page.php';
 
 /**
  * Tests the class Zend_Navigation_Page

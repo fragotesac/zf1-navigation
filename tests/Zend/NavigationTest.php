@@ -20,10 +20,6 @@
  * @version    $Id:$
  */
 
-/**
- * Zend_Navigation
- */
-require_once 'Zend/Navigation.php';
 
 /**
  * @category   Zend
@@ -60,7 +56,6 @@ class Zend_NavigationTest extends PHPUnit\Framework\TestCase
      */
     public function testNavigationArraySortsCorrectly()
     {
-        require_once 'Zend/Navigation/Page/Uri.php';
         $page1 = new Zend_Navigation_Page_Uri(array('uri' => 'page1'));
         $page2 = new Zend_Navigation_Page_Uri(array('uri' => 'page2'));
         $page3 = new Zend_Navigation_Page_Uri(array('uri' => 'page3'));

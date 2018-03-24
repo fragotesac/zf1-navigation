@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Navigation/Page/Uri.php';
 
 /**
  * Tests the class Zend_Navigation_Page_Uri
@@ -107,15 +106,15 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
     public function testGetHrefWithFragmentIdentifier()
     {
         $uri = 'http://www.example.com/foo.html';
-        
+
         $page = new Zend_Navigation_Page_Uri();
         $page->setUri($uri);
         $page->setFragment('bar');
-        
+
         $this->assertEquals($uri . '#bar', $page->getHref());
-        
+
         $page->setUri('#');
-        
+
         $this->assertEquals('#bar', $page->getHref());
     }
 }
