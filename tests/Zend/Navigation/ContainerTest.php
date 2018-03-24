@@ -21,7 +21,6 @@
  */
 
 require_once 'Zend/Navigation.php';
-require_once 'Zend/Config.php';
 require_once 'Zend/Controller/Front.php';
 require_once 'Zend/Controller/Request/Http.php';
 
@@ -375,13 +374,13 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
      * @group ZF-9815
      */
     public function testAddPagesShouldWorkWithNavigationContainer()
-    {        
+    {
         $nav = new Zend_Navigation();
         $nav->addPages($this->_getFindByNavigation());
-        
+
         $this->assertEquals(3, count($nav),
                             'Expected 3 pages, found ' . count($nav));
-        
+
         $this->assertEquals($nav->toArray(), $this->_getFindByNavigation()->toArray());
     }
 
@@ -791,35 +790,35 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $found = $nav->findOneBy('id', 'non-existant');
         $this->assertNull($found);
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindOneByWithRegex()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         $found = $nav->findOneBy('id', '/page_2/', true);
         $this->assertEquals('Page 2', $found->getLabel());
-        
+
         $found = $nav->findOneBy('class', '/([o]{2})/', true);
         $this->assertEquals('Page 1.3', $found->getLabel());
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindOneWithinArrayProperties()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         $found = $nav->findOneBy('rel', 'Example.org');
         $this->assertEquals('Page 1.2', $found->getLabel());
-        
+
         $found = $nav->findOneBy('rel', '/Example/', true);
         $this->assertEquals('Page 1.2', $found->getLabel());
     }
-    
+
     /**
      * @group ZF-9994
      */
@@ -829,28 +828,28 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
 
         $found = $nav->findOneBy('rel', '#Example(.*)#', true);
         $this->assertEquals('Page 1.2', $found->getLabel());
-        
+
         $found = $nav->findOneBy('rel', '?Ex([a-z]*)?', true);
         $this->assertEquals('Page 1.2', $found->getLabel());
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindByWithRegex()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         // Find one
         $found = $nav->findBy('id', '/page_2/', false, true);
         $this->assertEquals('Page 2', $found->getLabel());
-        
+
         $found = $nav->findBy('class', '/([fo]{2})/', false, true);
         $this->assertEquals('Page 1.3', $found->getLabel());
-        
+
         // Find all
         $found = $nav->findBy('title', '/(The){1}.*(given){1}/', true, true);
-        
+
         $expected = array('Page 1.1', 'Page 1.2', 'Page 1.3');
         $actual   = array();
 
@@ -887,16 +886,16 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $actual = array('type' => gettype($found), 'count' => count($found));
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindAllByWithRegex()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         $found = $nav->findAllBy('title', '/(The){1}.*(given){1}/', true);
-        
+
         $expected = array('Page 1.1', 'Page 1.2', 'Page 1.3');
         $actual = array();
 
@@ -906,17 +905,17 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals($expected, $actual);
     }
-        
+
     /**
      * @group ZF-9994
      */
     public function testFindAllWithinArrayProperties()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         // Strict is true
         $found = $nav->findAllBy('rel', 'Example.org');
-        
+
         $expected = array('Page 1.2', 'Page 1.3');
         $actual   = array();
 
@@ -926,17 +925,17 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals($expected, $actual);
     }
-        
+
     /**
      * @group ZF-9994
      */
     public function testFindAllWithRegexWithinArrayProperties()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         // Test 1
         $found = $nav->findAllBy('rel', '#Example(.*)#', true);
-        
+
         $expected = array('Page 1.2', 'Page 1.3');
         $actual   = array();
 
@@ -945,10 +944,10 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         }
 
         $this->assertEquals($expected, $actual);
-        
+
         // Test 2
         $found = $nav->findAllBy('rel', '?Ex([a-z]*)?', true);
-        
+
         $actual = array();
 
         foreach ($found as $page) {
@@ -1066,18 +1065,18 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
             $this->assertContains('Bad method call', $e->getMessage());
         }
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindByMagicMethodWithRegex()
     {
         $nav = $this->_getFindByNavigation();
-        
+
         // Find one
         $found = $nav->findOneByClass('/bar/', true);
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         // Find all
         $found = $nav->findAllById('/page_2_/', true);
         $this->assertContainsOnly('Zend_Navigation_Page', $found, false);
@@ -1090,34 +1089,34 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @group ZF-9994
      */
     public function testFindByMagicMethodActivateRegex()
     {
         $nav = $this->_getFindByNavigation();
-                
+
         $found = $nav->findOneByClass('/bar/', true);
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         $found = $nav->findOneByClass('/bar/', 1);
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         $found = $nav->findOneByClass('/bar/', 42);
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         $found = $nav->findOneByClass('/bar/', 'true');
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         $found = $nav->findOneByClass('/bar/', (object) null);
         $this->assertSame('page-1.3', $found->getUri());
-        
+
         $found = $nav->findOneByClass('/bar/', '0');
         $this->assertNull($found);
-        
+
         $found = $nav->findOneByClass('/bar/', array());
-        $this->assertNull($found);               
+        $this->assertNull($found);
     }
 
     protected function _getFindByNavigation()

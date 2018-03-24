@@ -21,7 +21,6 @@
  */
 
 require_once 'Zend/Navigation/Page.php';
-require_once 'Zend/Config.php';
 
 /**
  * Tests the class Zend_Navigation_Page
@@ -171,12 +170,12 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             'uri'                => '#',
             'fragment'           => 'foo',
         ));
-        
+
         $this->assertEquals('foo', $page->getFragment());
-        
+
         $page->setFragment('bar');
         $this->assertEquals('bar', $page->getFragment());
-        
+
         $invalids = array(42, (object) null);
         foreach ($invalids as $invalid) {
             try {
@@ -189,7 +188,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                 );
             }
         }
-    } 
+    }
 
     public function testSetAndGetId()
     {
@@ -304,11 +303,11 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             'label' => 'foo',
             'uri'   => '#',
         ));
-        
+
         $this->assertEquals(null, $page->getAccesskey());
         $page->setAccesskey('b');
         $this->assertEquals('b', $page->getAccesskey());
-        
+
         $invalids = array('bar', 42, true, (object) null);
         foreach ($invalids as $invalid) {
             try {
@@ -486,7 +485,6 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             'label'    => 'hello'
         ));
 
-        require_once 'Zend/Acl/Resource.php';
         $resource = new Zend_Acl_Resource('bar');
 
         $page->setResource($resource);
@@ -745,7 +743,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
 
         /**
          * ZF-10146
-         * 
+         *
          * @link http://framework.zend.com/issues/browse/ZF-10146
          */
         $page->setVisible('False');
@@ -1360,7 +1358,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         // assert that there is no diff from what we expect
         $this->assertEquals($options, $toArray['pages'][1]);
     }
-    
+
     /**
      * @group ZF-11805
      */
@@ -1373,11 +1371,11 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                         'Zend_Navigation_Exception was not thrown');
         } catch (Zend_Navigation_Exception $e) {
             $this->assertSame(
-                'Invalid argument: Unable to determine class to instantiate', 
+                'Invalid argument: Unable to determine class to instantiate',
                 $e->getMessage()
             );
 }
-        
+
         // With label
         try {
             $page = Zend_Navigation_Page::factory(array(
@@ -1388,7 +1386,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         } catch (Zend_Navigation_Exception $e) {
             $this->assertSame(
                 'Invalid argument: Unable to determine class to instantiate'
-                . ' (Page label: Foo)', 
+                . ' (Page label: Foo)',
                 $e->getMessage()
             );
         }
