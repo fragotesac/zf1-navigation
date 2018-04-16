@@ -40,7 +40,6 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
      */
     protected function setUp()
     {
-
     }
 
     /**
@@ -112,7 +111,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetShouldNotMapToSetOptionsToPreventRecursion()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type' => 'uri',
+            'type'  => 'uri',
             'label' => 'foo'
         ));
 
@@ -126,7 +125,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetShouldNotMapToSetConfigToPreventRecursion()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type' => 'uri',
+            'type'  => 'uri',
             'label' => 'foo'
         ));
 
@@ -141,7 +140,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals('foo', $page->getLabel());
@@ -166,8 +165,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetAndGetFragmentIdentifier()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'uri'                => '#',
-            'fragment'           => 'foo',
+            'uri'      => '#',
+            'fragment' => 'foo',
         ));
 
         $this->assertEquals('foo', $page->getFragment());
@@ -183,7 +182,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                             'Zend_Navigation_Exception was not thrown');
             } catch (Zend_Navigation_Exception $e) {
                 $this->assertContains(
-                    'Invalid argument: $fragment', $e->getMessage()
+                    'Invalid argument: $fragment',
+                    $e->getMessage()
                 );
             }
         }
@@ -193,7 +193,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals(null, $page->getId());
@@ -217,8 +217,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#',
-            'id' => 10
+            'uri'   => '#',
+            'id'    => 10
         ));
 
         $this->assertEquals(10, $page->getId());
@@ -228,7 +228,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals(null, $page->getClass());
@@ -251,7 +251,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals(null, $page->getTitle());
@@ -274,7 +274,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals(null, $page->getTarget());
@@ -331,17 +331,17 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                 'prev' => 'foo',
                 'next' => 'baz'
             ),
-            'rev'   => array(
+            'rev' => array(
                 'alternate' => 'bat'
             )
         ));
 
         $expected = array(
-            'rel'   => array(
+            'rel' => array(
                 'prev' => 'foo',
                 'next' => 'baz'
             ),
-            'rev'   => array(
+            'rev' => array(
                 'alternate' => 'bat'
             )
         );
@@ -363,17 +363,17 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                 'prev' => 'foo',
                 'next' => 'baz'
             ),
-            'rev'   => array(
+            'rev' => array(
                 'alternate' => 'bat'
             )
         )));
 
         $expected = array(
-            'rel'   => array(
+            'rel' => array(
                 'prev' => 'foo',
                 'next' => 'baz'
             ),
-            'rev'   => array(
+            'rev' => array(
                 'alternate' => 'bat'
             )
         );
@@ -395,7 +395,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                 'prev' => 'foo',
                 'next' => 'baz'
             ),
-            'rev'   => array(
+            'rev' => array(
                 'next' => 'foo'
             )
         ));
@@ -416,7 +416,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals(null, $page->getOrder());
@@ -480,8 +480,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetResourceInterface()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello'
+            'type'  => 'uri',
+            'label' => 'hello'
         ));
 
         $resource = new Zend_Acl_Resource('bar');
@@ -493,8 +493,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetResourceShouldThrowExceptionWhenGivenInteger()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello'
+            'type'  => 'uri',
+            'label' => 'hello'
         ));
 
         try {
@@ -509,8 +509,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetResourceShouldThrowExceptionWhenGivenObject()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello'
+            'type'  => 'uri',
+            'label' => 'hello'
         ));
 
         try {
@@ -525,8 +525,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetPrivilegeNoParams()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello',
+            'type'      => 'uri',
+            'label'     => 'hello',
             'privilege' => 'foo'
         ));
 
@@ -537,8 +537,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetPrivilegeNull()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello',
+            'type'      => 'uri',
+            'label'     => 'hello',
             'privilege' => 'foo'
         ));
 
@@ -549,8 +549,8 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetPrivilegeString()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'type'     => 'uri',
-            'label'    => 'hello',
+            'type'      => 'uri',
+            'label'     => 'hello',
             'privilege' => 'foo'
         ));
 
@@ -679,14 +679,14 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testIsVisibleRecursiveTrueShouldReturnFalseIfParentInivisble()
     {
         $page = new Zend_Navigation_Page_Uri(array(
-            'label'  => 'Page 1',
+            'label'   => 'Page 1',
             'visible' => false,
-            'pages'  => array(
+            'pages'   => array(
                 new Zend_Navigation_Page_Uri(array(
-                    'label'  => 'Page 1.1',
-                    'pages'  => array(
+                    'label' => 'Page 1.1',
+                    'pages' => array(
                         new Zend_Navigation_Page_Uri(array(
-                            'label'  => 'Page 1.1'
+                            'label' => 'Page 1.1'
                         ))
                     )
                 ))
@@ -701,14 +701,14 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testGetVisibleRecursiveTrueShouldReturnFalseIfParentInivisble()
     {
         $page = new Zend_Navigation_Page_Uri(array(
-            'label'  => 'Page 1',
+            'label'   => 'Page 1',
             'visible' => false,
-            'pages'  => array(
+            'pages'   => array(
                 new Zend_Navigation_Page_Uri(array(
-                    'label'  => 'Page 1.1',
-                    'pages'  => array(
+                    'label' => 'Page 1.1',
+                    'pages' => array(
                         new Zend_Navigation_Page_Uri(array(
-                            'label'  => 'Page 1.1'
+                            'label' => 'Page 1.1'
                         ))
                     )
                 ))
@@ -756,7 +756,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => 'foo'
+            'uri'   => 'foo'
         ));
 
         $this->assertSame('foo', $page->getUri());
@@ -771,7 +771,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => 'foo'
+            'uri'   => 'foo'
         ));
 
         $this->assertTrue(isset($page->uri));
@@ -788,7 +788,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => 'foo'
+            'uri'   => 'foo'
         ));
 
         $this->assertFalse(isset($page->category));
@@ -805,7 +805,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals('foo', (string) $page);
@@ -814,18 +814,18 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetOptionsShouldTranslateToAccessor()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'label' => 'foo',
-            'action' => 'index',
+            'label'      => 'foo',
+            'action'     => 'index',
             'controller' => 'index'
         ));
 
         $options = array(
-            'label' => 'bar',
-            'action' => 'baz',
-            'controller' => 'bat',
-            'module' => 'test',
+            'label'        => 'bar',
+            'action'       => 'baz',
+            'controller'   => 'bat',
+            'module'       => 'test',
             'reset_params' => false,
-            'id' => 'foo-test'
+            'id'           => 'foo-test'
         );
 
         $page->setOptions($options);
@@ -854,18 +854,18 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testSetConfig()
     {
         $page = Zend_Navigation_Page::factory(array(
-            'label' => 'foo',
-            'action' => 'index',
+            'label'      => 'foo',
+            'action'     => 'index',
             'controller' => 'index'
         ));
 
         $options = array(
-            'label' => 'bar',
-            'action' => 'baz',
-            'controller' => 'bat',
-            'module' => 'test',
+            'label'        => 'bar',
+            'action'       => 'baz',
+            'controller'   => 'bat',
+            'module'       => 'test',
             'reset_params' => false,
-            'id' => 'foo-test'
+            'id'           => 'foo-test'
         );
 
         $page->setConfig(new Zend_Config($options));
@@ -895,18 +895,18 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $options = array(
-            'test' => 'test',
+            'test'    => 'test',
             'meaning' => 42
         );
 
         $page->setOptions($options);
 
         $actual = array(
-            'test' => $page->test,
+            'test'    => $page->test,
             'meaning' => $page->meaning
         );
 
@@ -1107,7 +1107,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             'type' => 'uri',
             'rel'  => array(
                 'alternate' => 'foo',
-                'foo' => 'bar'
+                'foo'       => 'bar'
             )
         ));
 
@@ -1121,7 +1121,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             'type' => 'uri',
             'rev'  => array(
                 'alternate' => 'foo',
-                'foo' => 'bar'
+                'foo'       => 'bar'
             )
         ));
 
@@ -1133,20 +1133,20 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     {
         $page = Zend_Navigation_Page::factory(array(
             'label' => 'foo',
-            'uri' => '#',
-            'baz' => 'bat'
+            'uri'   => '#',
+            'baz'   => 'bat'
         ));
 
         $options = array(
-            'test' => 'test',
+            'test'    => 'test',
             'meaning' => 42
         );
 
         $page->setOptions($options);
 
         $expected = array(
-            'baz' => 'bat',
-            'test' => 'test',
+            'baz'     => 'bat',
+            'test'    => 'test',
             'meaning' => 42
         );
 
@@ -1250,66 +1250,66 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
     public function testToArrayMethod()
     {
         $options = array(
-            'label'    => 'foo',
-            'uri'      => 'http://www.example.com/foo.html',
-            'fragment' => 'bar',
-            'id'       => 'my-id',
-            'class'    => 'my-class',
-            'title'    => 'my-title',
-            'target'   => 'my-target',
+            'label'     => 'foo',
+            'uri'       => 'http://www.example.com/foo.html',
+            'fragment'  => 'bar',
+            'id'        => 'my-id',
+            'class'     => 'my-class',
+            'title'     => 'my-title',
+            'target'    => 'my-target',
             'accesskey' => 'f',
-            'rel'      => array(),
-            'rev'      => array(),
-            'order'    => 100,
-            'active'   => true,
-            'visible'  => false,
+            'rel'       => array(),
+            'rev'       => array(),
+            'order'     => 100,
+            'active'    => true,
+            'visible'   => false,
 
-            'resource' => 'joker',
+            'resource'  => 'joker',
             'privilege' => null,
 
-            'foo'      => 'bar',
-            'meaning'  => 42,
+            'foo'     => 'bar',
+            'meaning' => 42,
 
-            'pages'    => array(
+            'pages' => array(
                 array(
-                    'label' => 'foo.bar',
-                    'uri'   => 'http://www.example.com/foo.html',
-                    'fragment' => null,
-                    'id' => null,
-                    'class' => null,
-                    'title' => null,
-                    'target' => null,
-                    'accesskey' => null,
-                    'rel' => array(),
-                    'rev' => array(),
+                    'label'             => 'foo.bar',
+                    'uri'               => 'http://www.example.com/foo.html',
+                    'fragment'          => null,
+                    'id'                => null,
+                    'class'             => null,
+                    'title'             => null,
+                    'target'            => null,
+                    'accesskey'         => null,
+                    'rel'               => array(),
+                    'rev'               => array(),
                     'customHtmlAttribs' => array(),
-                    'order' => null,
-                    'resource' => null,
-                    'privilege' => null,
-                    'active' => false,
-                    'visible' => true,
-                    'type' => 'Zend_Navigation_Page_Uri',
-                    'pages' => array (),
+                    'order'             => null,
+                    'resource'          => null,
+                    'privilege'         => null,
+                    'active'            => false,
+                    'visible'           => true,
+                    'type'              => 'Zend_Navigation_Page_Uri',
+                    'pages'             => array(),
                 ),
                 array(
-                    'label' => 'foo.baz',
-                    'uri'   => 'http://www.example.com/foo.html',
-                    'fragment' => null,
-                    'id' => null,
-                    'class' => null,
-                    'title' => null,
-                    'target' => null,
-                    'accesskey' => null,
-                    'rel' => array(),
-                    'rev' => array(),
-                    'customHtmlAttribs' => array (),
-                    'order' => null,
-                    'resource' => null,
-                    'privilege' => null,
-                    'active' => false,
-                    'visible' => true,
-                    'type' => 'Zend_Navigation_Page_Uri',
-                    'pages' => array (),
+                    'label'             => 'foo.baz',
+                    'uri'               => 'http://www.example.com/foo.html',
+                    'fragment'          => null,
+                    'id'                => null,
+                    'class'             => null,
+                    'title'             => null,
+                    'target'            => null,
+                    'accesskey'         => null,
+                    'rel'               => array(),
+                    'rev'               => array(),
+                    'customHtmlAttribs' => array(),
+                    'order'             => null,
+                    'resource'          => null,
+                    'privilege'         => null,
+                    'active'            => false,
+                    'visible'           => true,
+                    'type'              => 'Zend_Navigation_Page_Uri',
+                    'pages'             => array(),
                 )
             ),
 
@@ -1319,7 +1319,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
             ),
         );
 
-        $page = Zend_Navigation_Page::factory($options);
+        $page    = Zend_Navigation_Page::factory($options);
         $toArray = $page->toArray();
 
         // tweak options to what we expect toArray() to contain
@@ -1332,19 +1332,19 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(2, count($toArray['pages']));
 
         // tweak options to what we expect sub page 1 to be
-        $options['label'] = 'foo.bar';
-        $options['fragment'] = null;
-        $options['order'] = null;
-        $options['id'] = null;
-        $options['class'] = null;
-        $options['title'] = null;
-        $options['target'] = null;
-        $options['accesskey'] = null;
-        $options['resource'] = null;
-        $options['active'] = false;
-        $options['visible'] = true;
+        $options['label']             = 'foo.bar';
+        $options['fragment']          = null;
+        $options['order']             = null;
+        $options['id']                = null;
+        $options['class']             = null;
+        $options['title']             = null;
+        $options['target']            = null;
+        $options['accesskey']         = null;
+        $options['resource']          = null;
+        $options['active']            = false;
+        $options['visible']           = true;
         $options['customHtmlAttribs'] = array();
-        $options['pages'] = array();
+        $options['pages']             = array();
         unset($options['foo']);
         unset($options['meaning']);
 
@@ -1373,7 +1373,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
                 'Invalid argument: Unable to determine class to instantiate',
                 $e->getMessage()
             );
-}
+        }
 
         // With label
         try {

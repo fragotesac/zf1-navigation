@@ -147,7 +147,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             $this->fail(
                 'A Zend_Exception has not been thrown for non-existant class'
             );
-        } catch(Zend_Exception $e) {
+        } catch (Zend_Exception $e) {
             $this->assertEquals(
                 'File "My' . DIRECTORY_SEPARATOR . 'NonExistant' . DIRECTORY_SEPARATOR . 'Page.php" does not exist or class '
                 . '"My_NonExistant_Page" was not found in the file',
@@ -166,7 +166,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             $this->fail(
                 'An exception has not been thrown for invalid page type'
             );
-        } catch(Zend_Navigation_Exception $e) {
+        } catch (Zend_Navigation_Exception $e) {
             $this->assertEquals(
                 'Invalid argument: Unable to determine class to instantiate '
                 . '(Page label: My Invalid Page)',

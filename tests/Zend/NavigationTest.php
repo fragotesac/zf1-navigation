@@ -72,5 +72,4 @@ class Zend_NavigationTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('page1', $pages[1]['uri']);
         $this->assertEquals('page2', $pages[2]['uri']);
     }
-
 }

@@ -37,7 +37,7 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
     {
         $page = new Zend_Navigation_Page_Uri(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $this->assertEquals('#', $page->getUri());
@@ -47,7 +47,7 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
     {
         $page = new Zend_Navigation_Page_Uri(array(
             'label' => 'foo',
-            'uri' => null
+            'uri'   => null
         ));
 
         $this->assertNull($page->getUri(), 'getUri() should return null');
@@ -62,7 +62,7 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
     public function testUriOptionAsObject()
     {
         $this->expectException(Zend_Navigation_Exception::class);
-        $uri = new stdClass();
+        $uri      = new stdClass();
         $uri->foo = 'bar';
 
         $page = new Zend_Navigation_Page_Uri(array('uri' => $uri));
@@ -72,7 +72,7 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
     {
         $page = new Zend_Navigation_Page_Uri(array(
             'label' => 'foo',
-            'uri' => '#'
+            'uri'   => '#'
         ));
 
         $page->setUri('http://www.example.com/')->setUri('about:blank');

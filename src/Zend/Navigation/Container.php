@@ -63,7 +63,7 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
     {
         if ($this->_dirtyIndex) {
             $newIndex = array();
-            $index = 0;
+            $index    = 0;
 
             foreach ($this->_pages as $hash => $page) {
                 $order = $page->getOrder();
@@ -76,7 +76,7 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
             }
 
             asort($newIndex);
-            $this->_index = $newIndex;
+            $this->_index      = $newIndex;
             $this->_dirtyIndex = false;
         }
     }
@@ -108,7 +108,8 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
     {
         if ($page === $this) {
             throw new Zend_Navigation_Exception(
-                'A page cannot have itself as a parent');
+                'A page cannot have itself as a parent'
+            );
         }
 
         if (is_array($page) || $page instanceof Zend_Config) {
@@ -116,7 +117,8 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
         } elseif (!$page instanceof Zend_Navigation_Page) {
             throw new Zend_Navigation_Exception(
                     'Invalid argument: $page must be an instance of ' .
-                    'Zend_Navigation_Page or Zend_Config, or an array');
+                    'Zend_Navigation_Page or Zend_Config, or an array'
+            );
         }
 
         $hash = $page->hashCode();
@@ -129,7 +131,7 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
         // adds page to container and sets dirty flag
         $this->_pages[$hash] = $page;
         $this->_index[$hash] = $page->getOrder();
-        $this->_dirtyIndex = true;
+        $this->_dirtyIndex   = true;
 
         // inject self as page parent
         $page->setParent($this);
@@ -161,7 +163,8 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
             throw new Zend_Navigation_Exception(
                     'Invalid argument: $pages must be an array, an ' .
                     'instance of Zend_Config or an instance of ' .
-                    'Zend_Navigation_Container');
+                    'Zend_Navigation_Container'
+            );
         }
 
         foreach ($pages as $page) {
@@ -515,7 +518,8 @@ abstract class Zend_Navigation_Container implements RecursiveIterator, Countable
         } else {
             throw new Zend_Navigation_Exception(
                     'Corruption detected in container; ' .
-                    'invalid key found in internal iterator');
+                    'invalid key found in internal iterator'
+            );
         }
     }
 
