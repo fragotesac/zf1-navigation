@@ -274,7 +274,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = new Zend_Navigation();
         $nav->addPage($pageOptions);
 
-        $this->assertEquals(1, count($nav));
+        $this->assertCount(1, $nav);
     }
 
     public function testAddPageShouldWorkWithConfig()
@@ -289,7 +289,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = new Zend_Navigation();
         $nav->addPage($pageOptions);
 
-        $this->assertEquals(1, count($nav));
+        $this->assertCount(1, $nav);
     }
 
     public function testAddPageShouldWorkWithPageInstance()
@@ -304,7 +304,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $page = Zend_Navigation_Page::factory($pageOptions);
         $nav->addPage($page);
 
-        $this->assertEquals(2, count($nav));
+        $this->assertCount(2, $nav);
     }
 
     public function testAddPagesShouldWorkWithArray()
@@ -322,9 +322,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
             )
         ));
 
-        $this->assertEquals(
+        $this->assertCount(
             2,
-            count($nav),
+            $nav,
                             'Expected 2 pages, found ' . count($nav)
         );
     }
@@ -344,9 +344,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
             )
         )));
 
-        $this->assertEquals(
+        $this->assertCount(
             2,
-            count($nav),
+            $nav,
                             'Expected 2 pages, found ' . count($nav)
         );
     }
@@ -370,9 +370,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
             ))
         )));
 
-        $this->assertEquals(
+        $this->assertCount(
             3,
-            count($nav),
+            $nav,
                             'Expected 3 pages, found ' . count($nav)
         );
     }
@@ -385,9 +385,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = new Zend_Navigation();
         $nav->addPages($this->_getFindByNavigation());
 
-        $this->assertEquals(
+        $this->assertCount(
             3,
-            count($nav),
+            $nav,
                             'Expected 3 pages, found ' . count($nav)
         );
 
@@ -436,9 +436,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
 
         $nav->removePages();
 
-        $this->assertEquals(
+        $this->assertCount(
             0,
-            count($nav),
+            $nav,
                             'Expected 0 pages, found ' . count($nav)
         );
     }
@@ -464,9 +464,9 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
             )
         ));
 
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($nav),
+            $nav,
                             'Expected 1 page, found ' . count($nav)
         );
     }

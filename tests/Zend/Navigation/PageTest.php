@@ -1329,7 +1329,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($options, $toArray);
 
         // $toArray should have 2 sub pages
-        $this->assertEquals(2, count($toArray['pages']));
+        $this->assertCount(2, $toArray['pages']);
 
         // tweak options to what we expect sub page 1 to be
         $options['label']             = 'foo.bar';

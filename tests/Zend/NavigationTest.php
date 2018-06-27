@@ -67,7 +67,7 @@ class Zend_NavigationTest extends PHPUnit\Framework\TestCase
         $page2->setOrder(2);
 
         $pages = $this->_navigation->toArray();
-        $this->assertSame(3, count($pages));
+        $this->assertCount(3, $pages);
         $this->assertEquals('page3', $pages[0]['uri']);
         $this->assertEquals('page1', $pages[1]['uri']);
         $this->assertEquals('page2', $pages[2]['uri']);
