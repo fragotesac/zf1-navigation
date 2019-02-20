@@ -325,7 +325,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             2,
             $nav,
-                            'Expected 2 pages, found ' . count($nav)
+            'Expected 2 pages, found ' . count($nav)
         );
     }
 
@@ -347,7 +347,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             2,
             $nav,
-                            'Expected 2 pages, found ' . count($nav)
+            'Expected 2 pages, found ' . count($nav)
         );
     }
 
@@ -373,7 +373,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             3,
             $nav,
-                            'Expected 3 pages, found ' . count($nav)
+            'Expected 3 pages, found ' . count($nav)
         );
     }
 
@@ -388,7 +388,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             3,
             $nav,
-                            'Expected 3 pages, found ' . count($nav)
+            'Expected 3 pages, found ' . count($nav)
         );
 
         $this->assertEquals($nav->toArray(), $this->_getFindByNavigation()->toArray());
@@ -439,7 +439,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             0,
             $nav,
-                            'Expected 0 pages, found ' . count($nav)
+            'Expected 0 pages, found ' . count($nav)
         );
     }
 
@@ -467,7 +467,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $this->assertCount(
             1,
             $nav,
-                            'Expected 1 page, found ' . count($nav)
+            'Expected 1 page, found ' . count($nav)
         );
     }
 

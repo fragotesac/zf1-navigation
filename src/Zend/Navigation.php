@@ -41,7 +41,7 @@ class Zend_Navigation extends Zend_Navigation_Container
             $this->addPages($pages);
         } elseif (null !== $pages) {
             throw new Zend_Navigation_Exception(
-                    'Invalid argument: $pages must be an array, an ' .
+                'Invalid argument: $pages must be an array, an ' .
                     'instance of Zend_Config, or null'
             );
         }

@@ -49,7 +49,7 @@ class Zend_Navigation_Page_Uri extends Zend_Navigation_Page
     {
         if (null !== $uri && !is_string($uri)) {
             throw new Zend_Navigation_Exception(
-                    'Invalid argument: $uri must be a string or null'
+                'Invalid argument: $uri must be a string or null'
             );
         }
 
