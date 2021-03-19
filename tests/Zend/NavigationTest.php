@@ -36,13 +36,13 @@ class Zend_NavigationTest extends PHPUnit\Framework\TestCase
      */
     private $_navigation;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->_navigation = new Zend_Navigation();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->_navigation = null;
         parent::tearDown();
