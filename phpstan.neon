@@ -8,10 +8,10 @@ parameters:
     ignoreErrors:
         - '#Method Zend_Navigation_Container::findBy\(\) should return \(iterable<Zend_Navigation_Page>&Zend_Navigation_Page\)\|null but returns array<Zend_Navigation_Page>\.#'
         # Defensive coding
-        - 
+        -
             message: '#Strict comparison using !== between null and null will always evaluate to false\.#'
             path: %currentWorkingDirectory%/src/Zend/Navigation.php
-        - 
+        -
             message: '#Result of \|\| is always true\.#'
             path: %currentWorkingDirectory%/src/Zend/Navigation/Page.php
         -
@@ -23,3 +23,6 @@ parameters:
         -
             message: '#Result of && is always false\.#'
             path: %currentWorkingDirectory%/src/Zend/Navigation/Page/Uri.php
+        -
+            message: '#Call to function current\(\) on a separate line has no effect\.#'
+            path: './src/Zend/Navigation/Container.php'
