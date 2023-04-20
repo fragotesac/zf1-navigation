@@ -786,7 +786,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findOneBy('page2', 'page2');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
         $this->assertEquals('Page 2', $found->getLabel());
     }
 
@@ -795,7 +795,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findOneBy('id', 'page_2_and_3');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
         $this->assertEquals('Page 2', $found->getLabel());
     }
 
@@ -978,7 +978,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findBy('id', 'page_2_and_3');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
     }
 
     public function testFindOneByMagicMethodNativeProperty()
@@ -986,7 +986,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findOneById('page_2_and_3');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
         $this->assertEquals('Page 2', $found->getLabel());
     }
 
@@ -995,7 +995,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findOneBypage2('page2');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
         $this->assertEquals('Page 2', $found->getLabel());
     }
 
@@ -1052,7 +1052,7 @@ class Zend_Navigation_ContainerTest extends PHPUnit\Framework\TestCase
         $nav = $this->_getFindByNavigation();
 
         $found = $nav->findById('page_2_and_3');
-        $this->assertTrue($found instanceof Zend_Navigation_Page);
+        $this->assertInstanceOf(Zend_Navigation_Page::class, $found);
         $this->assertEquals('Page 2', $found->getLabel());
     }
 

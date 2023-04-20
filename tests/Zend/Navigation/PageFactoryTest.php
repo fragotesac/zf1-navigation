@@ -89,7 +89,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             'uri'   => '#'
         ));
 
-        $this->assertTrue($page instanceof Zend_Navigation_Page_Uri);
+        $this->assertInstanceOf(Zend_Navigation_Page_Uri::class, $page);
     }
 
     public function testSupportsMvcShorthand()
@@ -101,7 +101,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             'controller' => 'index'
         ));
 
-        $this->assertTrue($mvcPage instanceof Zend_Navigation_Page_Mvc);
+        $this->assertInstanceOf(Zend_Navigation_Page_Mvc::class, $mvcPage);
     }
 
     public function testSupportsUriShorthand()
@@ -112,7 +112,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             'uri'   => 'http://www.example.com/'
         ));
 
-        $this->assertTrue($uriPage instanceof Zend_Navigation_Page_Uri);
+        $this->assertInstanceOf(Zend_Navigation_Page_Uri::class, $uriPage);
     }
 
     public function testSupportsCustomPageTypes()
@@ -122,7 +122,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             'label' => 'My Custom Page'
         ));
 
-        return $this->assertTrue($page instanceof My_Page);
+        return $this->assertInstanceOf(My_Page::class, $page);
     }
 
     public function testShouldFailForInvalidType()
